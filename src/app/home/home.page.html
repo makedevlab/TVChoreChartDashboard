@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true">
+  
+  <ion-grid class="dashboard">
+    <ion-row>
+      <ion-col *ngFor="let child of children">
+        <h1>{{child.name}}</h1>
+        <ion-img class="child-image" [src]="child.photo_url" *ngIf="child.photo_url"></ion-img>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let child of children">
+        <ng-container *ngFor="let chore of child.chores">
+          <div class="chore" *ngIf="!chore.complete">
+
+            <h2>{{chore.task.name}}</h2>
+            <ion-img class="chore-image" [src]="chore.task.thumbnail_url" *ngIf="chore.task.thumbnail_url"></ion-img>
+            
+          </div>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
